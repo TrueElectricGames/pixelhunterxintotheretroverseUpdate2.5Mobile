@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Hunter X: Into the Retroverse Update 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="main-menu">
+    <h1>⚡ Pixel Hunter X: Into the Retroverse</h1>
+    <button id="play-btn">▶️ Play</button>
+    <button id="shop-btn">🛒 Shop</button>
+    <button id="skins-btn">🎨 Skins</button>
+    <button id="achievements-btn">🏆 Achievements</button>
+    <button id="patriotic-quests-btn">🪖 Patriotic Quests</button>
+    <button id="events-btn">🎆 Patriotic Event</button>
+    <button id="patriotic-shop-btn">⭐ Patriotic Shop</button>
+    <button id="patriotic-upgrades-btn">⚙️ Patriotic Upgrades</button>
+    <button id="update-log-btn">📝 Update Log</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="mode-select" class="hidden">
+    <h2>Select Game Mode</h2>
+    <button id="classic-btn">🎮 Classic</button>
+    <button id="endless-btn">♾️ Endless</button>
+    <button id="patriotic-mode-btn">🇺🇸 Patriotic Mode</button>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+
+
+  <canvas id="gameCanvas" class="hidden"></canvas>
+  <div id="game-back-btn" class="hidden">
+    <button id="exit-game-btn">⬅ Exit Game</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="shop" class="hidden">
+  <h2>🛒 Shop</h2>
+  <p>Coins: <span id="coin-count">0</span></p>  <!-- Add this line -->
+  <p id="speed-cost">💨 Speed Upgrade (Cost: 75 Coins)</p>
+  <button id="upgrade-speed">Upgrade Speed</button>
+  <p id="fire-cost">⚡ Fire Rate Upgrade (Cost: 125 Coins)</p>
+  <button id="upgrade-fire">Upgrade Fire Rate</button>
+
+
+
+
+
+
+
+
+  <p>🔫 Triple Laser (Cost: 2500 Coins)</p>
+  <button id="upgrade-double">Unlock Triple Laser</button>
+  <button class="back-btn">⬅ Back</button>
+</div>
+
+
+
+
+
+
+
+
+  <div id="skins" class="hidden">
+    <h2>🎨 Skins</h2>
+    <ul id="skin-list"></ul>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="achievements" class="hidden">
+    <h2>🏆 Achievements</h2>
+    <ul id="achievement-list"></ul>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="update-log" class="hidden">
+    <h2>📝 Update 2 Patriotic Event</h2>
+    <div id="log-content">
+      <ul>
+        <ul>
+  <li>🎆 <strong>Patriotic Event Launch:</strong> Celebrate with a new limited-time event featuring patriotic-themed enemies, challenges, and rewards!</li>
+  <li>💥 <strong>Stars Renamed to Fireworks:</strong> The primary event currency is now called Fireworks, enhancing the thematic feel and UI consistency.</li>
+  <li>🎁 <strong>Golden Rainbow Skin Added:</strong> Unlock this stunning new skin for 30,000 Fireworks to stand out in the battlefield with radiant colors and effects.</li>
+  <li>🔫 <strong>Triple Shot Patriotic Upgrade:</strong> Available in the Patriotic Upgrades shop for 900 Fireworks. Shoot three lasers at once for maximum damage and style!</li>
+  <li>🛡️ <strong>Barrier Durability Increased:</strong> Barriers now withstand up to 25 hits, providing stronger defense and longer-lasting protection during intense waves.</li>
+  <li>⚙️ <strong>Patriotic Upgrades Scaling:</strong> Upgrade costs and effects scale with level, encouraging strategic resource management and progression.</li>
+  <li>📈 <strong>Shop Upgrades Display Scaling Costs:</strong> All shop upgrade buttons now dynamically show current upgrade costs and max level indicators for clarity.</li>
+  <li>🪖 <strong>New Quest Added:</strong> Collect 5,000 Fireworks to complete a challenging new quest, rewarding dedicated players with exclusive prizes.</li>
+  <li>✨ <strong>UI Overhaul:</strong> Complete visual refresh for menus, upgrade screens, and in-game HUD with a sleek patriotic color palette and improved readability.</li>
+  <li>🐞 <strong>Bug Fixes and Performance:</strong> Various fixes including improved collision detection, save/load reliability, and smoother gameplay across all modes.</li>
+</ul>
+      </ul>
+    </div>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="patriotic-quests" class="hidden">
+    <h2>🪖 Patriotic Quests</h2>
+    <ul>
+      <li id="quest-kills">🔫 Kill 10,000 enemies</li>
+      <li id="quest-coins">🎆 Collect 5,000 Fireworks</li>
+      <li id="quest-boss">🦅 Defeat the Patriotic Boss</li>
+    </ul>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="events" class="hidden">
+    <h2>🎆 Patriotic Event</h2>
+    <p id="event-timer">⏳ Loading event timer...</p>
+    <button id="patriotic-mode-btn-2">🇺🇸 Play Patriotic Mode</button>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="patriotic-shop" class="hidden">
+  <h2>🎆 Patriotic Shop</h2>
+  <p>Fireworks: <span id="star-count">0</span></p>
+  
+  <p><strong>🎁 Golden Rainbow Skin - 30,000 Fireworks</strong></p>
+  <button id="buy-patriotic-skin">Unlock Skin</button>
+
+
+
+
+
+
+
+
+  <p><strong>🎁 Neon Rainbow Patriotic Skin - 50,000 Fireworks</strong></p>
+  <button id="buy-neon-patriotic-skin">Unlock Neon Skin</button>
+
+
+
+
+  <p><strong>🔥🌌 Inferno Galaxy Skin - <s>100,000</s> 90,000 Fireworks</strong></p>
+  <button id="buy-inferno-galaxy">Unlock Inferno Galaxy</button>
+
+
+
+
+
+
+
+
+  <button class="back-btn">⬅ Back</button>
+</div>
+
+
+
+
+
+
+
+
+  <div id="patriotic-upgrades" class="hidden">
+    <h2>⚙️ Patriotic Upgrades</h2>
+    <p>Fireworks: <span id="patriotic-stars">0</span></p>
+    <p><strong>💥 Patriotic Damage (Cost: <span id="cost-damage">50</span>🎆)</strong></p>
+    <button id="patriotic-damage">Upgrade Damage</button>
+    <p><strong>⚡ Patriotic Speed (Cost: <span id="cost-speed">75</span>🎆)</strong></p>
+    <button id="patriotic-speed">Upgrade Speed</button>
+    <p><strong>🔫 Triple Shot (Cost: <span id="cost-triple">450</span>🎆)</strong></p>
+    <button id="patriotic-triple">Unlock Triple Shot</button>
+    <button class="back-btn">⬅ Back</button>
+  </div>
+
+
+
+
+
+
+  <div id="touch-controls" class="hidden">
+  <button id="touch-left">⬅</button>
+  <button id="touch-right">➡</button>
+  <button id="touch-fire">🔥</button>
+</div>
+
+
+
+
+  <script src="game.js" defer></script>
+</body>
+</html>
